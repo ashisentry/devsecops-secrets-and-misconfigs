@@ -1,0 +1,50 @@
+name: DevSecOps Security Pipeline for secrets and misconfigs
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  devsecops:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # ------------------------
+      # 1. Setup Python & Install Dependencies
+      # ------------------------
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.8.12"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      # ------------------------
+      # 2. Run Unit Tests
+      # ------------------------
+      - name: Run tests
+        run: pytest
+
+      # ------------------------
+      # 3. SAST (basic with Flake8)
+      # ------------------------
+      - name: Run Flake8 SAST
+        run: flake8 .		 
+
+      # ------------------------
+      # 5. Trivy Scan (config scan)
+      # ------------------------		
+		  
+      - name: Trivy Config Scan
+        uses: aquasecurity/trivy-action@0.33.1
+	with:
+	  scanners: vuln,secret,misconfig,license
+	  severity: HIGH,CRITICAL
+	  exit-code: 1
