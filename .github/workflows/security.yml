@@ -41,7 +41,7 @@ jobs:
       # ------------------------
       # 5. Trivy Scan (config scan)
       # ------------------------		
-		  
+      # 
       - name: Trivy Config Scan
         uses: aquasecurity/trivy-action@0.33.1
 	with:
