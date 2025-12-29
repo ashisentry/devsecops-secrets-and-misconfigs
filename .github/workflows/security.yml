@@ -44,7 +44,7 @@ jobs:
       # 
       - name: Trivy Config Scan
         uses: aquasecurity/trivy-action@0.33.1
-	with:
+        with:
 	  scanners: vuln,secret,misconfig,license
 	  severity: HIGH,CRITICAL
 	  exit-code: 1
