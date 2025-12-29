@@ -32,7 +32,15 @@ jobs:
       # 3. SAST (basic with Flake8)
       # ------------------------
       - name: Run Flake8 SAST
-        run: flake8 .		 
+        run: flake8 .
+
+      # ________________________
+      # 4. Gitleaks
+      # ------------------------
+      - name: Run Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        with: 
+          fail: true        
 
       # ------------------------
       # 5. Trivy Scan (config scan)
