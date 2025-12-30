@@ -51,6 +51,8 @@ jobs:
       - name: Trivy Config Scan
         uses: aquasecurity/trivy-action@0.33.1
         with:
-          scanners: vuln,secret,misconfig,license
-          severity: HIGH,CRITICAL
+          scan-type: fs
+          scan-ref: .
+          scanners: vuln, secret, misconfig, license
+          severity: HIGH, CRITICAL
           exit-code: 1
