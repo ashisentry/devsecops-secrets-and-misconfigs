@@ -53,5 +53,6 @@ jobs:
         with:
           scan-type: fs
           scan-ref: .
+          scanners: misconfig
           severity: HIGH,CRITICAL
           exit-code: 1

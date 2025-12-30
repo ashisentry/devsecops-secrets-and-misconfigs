@@ -6,3 +6,5 @@ services:
     image: python: 3.10
     environment:
       - DB_PASSWORD=admin123
+    privileged: true
+    user: root
