@@ -1,2 +1,2 @@
 FROM python:3.10
-USER root
+USER 1000:1000
