@@ -44,14 +44,6 @@ The main goal of this project is to:
 
 > **Note:** Trivy severity was set to CRITICAL and HIGH to avoid workflow failure due to LOW-severity findings such as missing HEALTHCHECK instructions.
 
-## 📂 Repository Structure
-
-.
-├── app/ # Sample application code
-├── Dockerfile # Container build instructions
-├── .github/workflows/ # CI/CD pipeline definition
-├── README.md # Project documentation
-
 ## ✅ Final Outcome
 
 - Security scans successfully integrated into the CI/CD pipeline
